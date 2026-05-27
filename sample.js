@@ -334,3 +334,85 @@
 //     i++
 // }
 // console.log(sum)
+
+//destructuring an array
+// let arr = [4, 5, 6, 6, 7, 5, 4, 3, 3]
+// let [a, , , ...rest] = arr    
+// console.log(a, rest)
+
+let obj = { id: 1, vid: 2, cid: 3, did: 4 }
+var { id, vid, cid, did } = obj
+console.log(id, vid, cid, did)
+
+let arr1 = [3, 5, 8]
+let obj1 = { ...arr1 }    //this is an spread operator
+console.log(obj1)
+
+let obj2 = {
+    name: "nirbhay",
+    surname: "kumar",
+    age: 20
+}
+console.log({ ...obj2, name: "sushil" })
+
+
+//Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities (the multiplicity of a member is the number of times it appears). "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+
+// Examples
+// Valid arrays
+
+// var result = function (a, b) {
+//     if ((a && b) && (a.length == b.length)) {
+//         for (let s = 0; s < b.length; s++) {
+//             for (let o = 0; o < a.length; o++) {
+//                 if (Math.sqrt(b[s]) == a[o]) {
+//                     return true
+//                 } else return false
+//             }
+//         }
+//     } else return "Array are of not same length or arrays are empty"
+// }
+// let a = []
+// let b = []
+// console.log(result(a,b))
+
+// console.log([].length)
+
+
+// //next program
+// function isValidWalk(walk) {
+//   //insert brilliant code here
+//   if(walk){
+//     let minutes=0
+//     for(let d=0;d<walk.length;d++)
+//       {
+//         if(walk[d]=="n" || walk[d]=="s" || walk[d]=="e" || walk[d]=="w"){
+//           minutes=minutes+1
+//         }
+//       }
+//     if(minutes==10){
+//       return true
+//     }else return false    
+//   }else return 0
+// }
+// console.log(isValidWalk(["n","s","w","e"]))
+
+// let a=[5,6,7,8,9,3,4]
+// let c=[...a]    // this will make an copy of the array and not storing the refrence of a
+// console.log(a)
+// console.log(c)
+
+// let a = [5,6,7,8,9,3,4]
+// let c = a     // this is passing the refrence not the copy of that array
+// console.log(a)
+// c[0] = 10
+
+// console.log(c)
+// console.log(a)
+
+// let h=[1,2]
+// let l=[3,4]
+// let o=[...h,...l]   // this will crreate a new array o in a memory 
+// o=[[...h],[...l]]  //created a nested array using spread operator
+// console.log(o)
+console.log(-1+89)
