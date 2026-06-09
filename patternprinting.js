@@ -45,9 +45,50 @@
 // inverted right angle triangle
 // for(let r=1;r<=5;r++)
 // {
-//     for(let c=6-r;c>=1;c--)
+//     for(let s=5;s>=r;s--)
 //     {
 //         process.stdout.write("* ")
 //     }
 //     console.log()
 // }
+
+//left slanted right angle triangle --combo of inverted triangleand right angle traingle
+for(let r=1;r<=5;r++)
+{
+    for(let s=5;s>=r;s--)
+    {
+        process.stdout.write(" ")
+    }
+    for(let c=1;c<=r;c++)
+    {
+        process.stdout.write("*")
+    }
+    console.log()
+}
+
+//cross-- only works for odd no. only
+for(let r=1;r<=7;r++)
+{
+    for(let c=1;c<=7;c++)
+    {
+        if(r==c || r+c==8)
+        {
+            process.stdout.write("*")
+        }
+        else process.stdout.write(" ")
+    }
+    console.log()
+}
+
+//v shape
+for(let r=1;r<=5;r++)
+{
+    for(let c=1;c<=9;c++)
+    {
+        if(r==c || r+c==10)
+        {
+            process.stdout.write("*")
+        }else  process.stdout.write(" ")
+    }
+    console.log()
+}
