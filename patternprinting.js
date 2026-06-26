@@ -163,46 +163,46 @@
 
 // console.log(longestCommonPrefix(["flower","flow","flight"]))
 
-var isValid = function(s) {
-    let stack = [];
-    let map = {
-        ')': '(',
-        '}': '{',
-        ']': '['
-    };
+// var isValid = function(s) {
+//     let stack = [];
+//     let map = {
+//         ')': '(',
+//         '}': '{',
+//         ']': '['
+//     };
     
-    for (let char of s) {
-        if (char === '(' || char === '{' || char === '[') {
-            stack.push(char);
-        } else {
-            if (stack.length === 0 || stack.pop() !== map[char]) {
-                return false;
-            }
-        }
-    }
-    return stack.length === 0;
-};
-console.log(isValid("{}"))
+//     for (let char of s) {
+//         if (char === '(' || char === '{' || char === '[') {
+//             stack.push(char);
+//         } else {
+//             if (stack.length === 0 || stack.pop() !== map[char]) {
+//                 return false;
+//             }
+//         }
+//     }
+//     return stack.length === 0;
+// };
+// console.log(isValid("{}"))
 
 
-var Duplicates = function (nums) {
-    let counter=0
-    let newArr=[]
-    for(let i=0;i<nums.length;i++)
-    {
-        let val=nums[i]
-        for(let j=i+1;j<nums.length;j++)
-        {
-            if(val==nums[j] && !newArr.includes(val))
-            {
-                newArr[i]=val
-            }
-        }
-    }
-    return newArr
-};
+// var Duplicates = function (nums) {
+//     let counter=0
+//     let newArr=[]
+//     for(let i=0;i<nums.length;i++)
+//     {
+//         let val=nums[i]
+//         for(let j=i+1;j<nums.length;j++)
+//         {
+//             if(val==nums[j] && !newArr.includes(val))
+//             {
+//                 newArr[i]=val
+//             }
+//         }
+//     }
+//     return newArr
+// };
 
-console.log(Duplicates([0,0,1,1,1,2,2,3,3,4]))
+// console.log(Duplicates([0,0,1,1,1,2,2,3,3,4]))
 
 var removeElement = function(nums, val) {
     if(nums.length==0)
@@ -222,3 +222,36 @@ var removeElement = function(nums, val) {
 }
 let arr=[3,2,2,3]
 console.log(removeElement(arr,2))
+
+var strStr = function(haystack, needle) {
+    let exampleStr=""  
+    for(let i of haystack)
+    {
+        exampleStr+=i
+        if(exampleStr==needle)
+        {
+            return haystack.indexOf(needle)
+        }
+    }
+    return -1
+
+};
+
+console.log(strStr("leetcode","leeto"))
+
+var strStr = function(haystack, needle) {
+    let n=haystack.length
+    let m=needle.length
+    for(let i=0;i<=n-m;i++)
+    {
+        let slice=haystack.substring(i,i+m)
+        if(needle==slice)
+        {
+            return i
+        }
+    }
+    return -1
+
+};
+
+console.log(strStr("harsh","arsh"))
