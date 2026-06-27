@@ -255,3 +255,26 @@ var strStr = function(haystack, needle) {
 };
 
 console.log(strStr("harsh","arsh"))
+
+
+var searchInsert = function(nums, target) {
+    let i=0
+    while(i!=nums.length)
+    {
+        if(nums[i]==target)
+        {
+            return i
+        }
+        else if(nums[i]<target)
+        {
+            return i+1 + searchInsert(nums.slice(i+1,nums.length),target)
+        }
+        else{
+            return i
+        }
+        i++
+    }
+    return nums.length
+}
+
+console.log(searchInsert([1,3,4,5],2))
