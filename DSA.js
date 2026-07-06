@@ -93,22 +93,67 @@
 // console.log(mySqrt(675))
 
 
-var getPrimefactor=function(x)
+// var getPrimefactor=function(x)
+// {
+//     let divisor=x
+//     let i=2
+//     let arr=[]
+//     while(divisor!=1)
+//     {
+//         if(divisor%i==0)
+//         {
+//             divisor=divisor/i
+//             arr.push(i)
+//         }
+//         else{
+//             i++
+//         }
+//     }
+//     return arr
+// }
+// console.log(getPrimefactor(654372))
+
+class Node
 {
-    let divisor=x
-    let i=2
-    let arr=[]
-    while(divisor!=1)
+    constructor(data)
     {
-        if(divisor%i==0)
-        {
-            divisor=divisor/i
-            arr.push(i)
-        }
-        else{
-            i++
-        }
+        this.data=data
+        this.next=null
+
     }
-    return arr
 }
-console.log(getPrimefactor(654372))
+class LinkedList
+{
+    constructor(head)
+    {
+        this.head=null
+    }
+    append(value)
+    {
+        let newNode=new Node(value)
+        if(!this.head)
+        {
+            this.head=newNode
+            return
+        }
+        let current=this.head
+        while(current.next)
+        {
+            current=current.next
+        }
+        current.next=newNode
+    }
+    prepend(value)
+    {
+        let newNode = new Node(value)  
+        if(this.head)
+        {
+            newNode.next = this.head    
+        }
+        this.head = newNode             
+    }
+}
+
+let list=new LinkedList()    
+list.prepend(3)
+console.log(list)
