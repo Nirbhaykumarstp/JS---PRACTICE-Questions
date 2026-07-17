@@ -89,8 +89,7 @@
 //     }
 //     return mySqrt(x-1)
 // }
-// debugger
-// console.log(mySqrt(675))
+// console.log(mySqrt(25))
 
 
 // var getPrimefactor=function(x)
@@ -113,47 +112,124 @@
 // }
 // console.log(getPrimefactor(654372))
 
-class Node
-{
-    constructor(data)
-    {
-        this.data=data
-        this.next=null
+// class Node
+// {
+//     constructor(data)
+//     {
+//         this.data=data
+//         this.next=null
 
-    }
+//     }
+// }
+// class LinkedList
+// {
+//     constructor(head)
+//     {
+//         this.head=null
+//     }
+//     append(value)
+//     {
+//         let newNode=new Node(value)
+//         if(!this.head)
+//         {
+//             this.head=newNode
+//             return
+//         }
+//         let current=this.head
+//         while(current.next)
+//         {
+//             current=current.next
+//         }
+//         current.next=newNode
+//     }
+//     prepend(value)
+//     {
+//         let newNode = new Node(value)  
+//         if(this.head)
+//         {
+//             newNode.next = this.head    
+//         }
+//         this.head = newNode            
+//     }
+// }
+
+// let list=new LinkedList()
+
+// console.log(list)
+
+
+var getNoways=(n)=>{
+    if(n==0 || n==1)
+        return 1
+    let left=getNoways(n-1)
+    let right=getNoways(n-2)
+    return left+right
 }
-class LinkedList
+console.log(getNoways(50))
+
+print no. from 1 to n using recursion
+function increment(i,n)
 {
-    constructor(head)
+    if(i>n)
+        return
+    console.log(i)
+    increment(i+1,n)
+}
+increment(1,5)
+
+//print no from n to 1 using recursion
+function decrement(i,n)
+{
+    if(i<1)
+        return
+    console.log(i)
+    decrement(i-1,n)
+}
+decrement(10,10)
+
+//print the no. from n to 1 with backtracking NO USE OF i-1
+function backtracking_D(i,n)
+{
+    if(i>n)            //base case ko do tarike se lagaya ja sakta hai age se bhi or piche se bhi
+        return
+    backtracking_D(i+1,n)
+    console.log(i)
+}
+backtracking_D(1,5)
+
+//print the no.from 1 to n using backtracking (no use increament operator)
+function backtracking_E(i,n)
+{
+    if(i<1)
+        return
+    backtracking_E(i-1,n)
+    console.log(i)
+}
+backtracking_E(10,10)
+
+// Parametrized recursion
+function summation(i,sum)
+{
+    if(i<1)
     {
-        this.head=null
+        console.log(sum)
+        return
     }
-    append(value)
-    {
-        let newNode=new Node(value)
-        if(!this.head)
-        {
-            this.head=newNode
-            return
-        }
-        let current=this.head
-        while(current.next)
-        {
-            current=current.next
-        }
-        current.next=newNode
-    }
-    prepend(value)
-    {
-        let newNode = new Node(value)  
-        if(this.head)
-        {
-            newNode.next = this.head    
-        }
-        this.head = newNode             
-    }
+    summation(i-1,sum+i)
+}
+debugger
+summation(5,0)
+
+function reverseArray(arr,i)
+{
+    if(i>=arr.length-i-1)
+        return arr
+    let temp=arr[i]
+    arr[i]=arr[arr.length-i-1]
+    arr[arr.length-i-1]=temp
+    return reverseArray(arr,i+1)
 }
 
-let list=new LinkedList()    
-list.prepend(3)
-console.log(list)
+let numbers=[1,2,3,4,5,6,7]
+numbers=reverseArray(numbers,0)
+console.log(numbers)
