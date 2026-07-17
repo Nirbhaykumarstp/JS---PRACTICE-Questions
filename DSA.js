@@ -167,7 +167,7 @@ var getNoways=(n)=>{
 }
 console.log(getNoways(50))
 
-print no. from 1 to n using recursion
+//print no. from 1 to n using recursion
 function increment(i,n)
 {
     if(i>n)
