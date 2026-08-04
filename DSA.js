@@ -233,3 +233,71 @@ function reverseArray(arr,i)
 let numbers=[1,2,3,4,5,6,7]
 numbers=reverseArray(numbers,0)
 console.log(numbers)
+
+function swap(arr, l, r)
+{
+    console.log(arr[l],arr[r])
+    let c=arr[r]
+    arr[r]=arr[l]
+    arr[l]=c
+    console.log(arr[l],arr[r])
+}
+
+function reverse(l,r)
+{
+    if(l>=r)
+    {
+        return arr
+    }
+    else{
+        swap(arr,l,r)
+        return reverse(l+1,r-1)
+    }
+}
+let arr=[55,32,4,52,23,45]
+console.log(reverse(0,arr.length-1))
+
+//A string is palindrome or not using recursion
+function isPalindrome(l,r)
+{
+    if(l==r)
+    {
+        return true
+    }
+    else if(str[l]==str[r])
+    {
+        return isPalindrome(l+1,r-1)
+    }
+    else 
+        return false
+}
+let str="racecar"
+console.log(isPalindrome(0,str.length-1))
+
+// multiple recursion call--fibonacci
+
+function findTerm(n)
+{
+    if(n<=1)
+        return n
+    else 
+    {
+        let last=findTerm(n-1)
+        let secondLast=findTerm(n-2)
+        return last+secondLast
+    }
+}
+console.log(findTerm(3))
+
+//staircase climbing
+function noofWays(n)
+{
+    if(n<=2)
+        return n
+    else{
+        let oneStair=noofWays(n-1)
+        let twoStair=noofWays(n-2)
+        return oneStair+twoStair
+    }
+}
+console.log(noofWays(3))
