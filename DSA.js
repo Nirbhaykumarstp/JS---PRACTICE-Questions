@@ -301,3 +301,20 @@ function noofWays(n)
     }
 }
 console.log(noofWays(3))
+
+// //subsequences using multiple recursion and backtracking
+function subsequences(i,sub)
+{
+    if(i>=arr.length)
+    {
+        console.log(sub)
+        return
+    }
+    let val=arr[i]
+    sub.push(val)
+    subsequences(i+1,sub)  // take the subsequence
+    sub.pop()
+    subsequences(i+1,sub)   // not take the subsequence
+}
+const arr=[5,6,7]
+subsequences(0,[])
