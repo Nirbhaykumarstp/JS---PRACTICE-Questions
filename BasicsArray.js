@@ -115,3 +115,89 @@ function countEvenOdd(arr)
     }
 }
 console.log(countEvenOdd([3,45,6,7,85,4]))
+
+// Find second largest element in an Array
+function secondLargest(arr)
+{
+    for(let i=0;i<arr.length-1;i++)
+    {
+        for(let j=i+1;j<arr.length;j++)
+        {
+            if(arr[i]>=arr[j])
+            {
+                let temp=arr[i]
+                arr[i]=arr[j]
+                arr[j]=temp
+            }
+        }
+    }
+    console.log(arr)
+    return arr[arr.length-2]
+}
+console.log(secondLargest([3,2,45,35,4,34,3,4553,22,44,223,98,43,76,45,223]))
+
+// optimal solution
+function secondLargest(arr)
+{
+    let largest=-Infinity
+    let s_largest=-Infinity
+    for(let i=0;i<arr.length;i++)
+    {
+        if(arr[i]>largest)
+        {
+            s_largest=largest
+            largest=arr[i]
+        }
+        else
+        {
+            if(arr[i]>s_largest && arr[i]!=largest)
+            {
+                s_largest=arr[i]
+            }
+        }
+    }
+    return s_largest
+}
+console.log(secondLargest([8,6,7,9,4,8.5,8,8.5,8.1,8.9,9]))
+
+//Searching for an elemnt
+
+function searchElem(target,arr)
+{
+    for(let i=0;i<arr.length;i++)
+    {
+        if(arr[i]==target)
+        {
+            return i
+        }
+    }
+    return -1
+}
+console.log(searchElem(5,[1,2,3,4,5,6,7,8,9,0]))
+
+
+function binarySearch(target,arr)
+{
+    let start=0
+    let end=arr.length-1
+
+    while(start<=end)
+    {    
+        let mid=Math.floor((start+end+1)/2)
+        if(arr[mid]==target)
+        {
+            return mid
+        }
+        else if(target<arr[mid])
+        {
+            end=mid-1
+        }
+        else if(target>arr[mid])
+        {
+            start=mid+1
+        }
+    }
+    return -1
+}
+
+console.log(binarySearch(5,[3,4,5,6,7,8,9,10,12]))
