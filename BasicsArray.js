@@ -201,3 +201,88 @@ function binarySearch(target,arr)
 }
 
 console.log(binarySearch(5,[3,4,5,6,7,8,9,10,12]))
+
+// Remove the dublicates from sorted array
+function removeDuplicate(arr)
+{
+    let duplicate=arr[0]
+    let i=1
+    while(i<arr.length)
+    {
+        if(arr[i]==duplicate)
+        {
+            arr.splice(i,1)
+            duplicate=arr[i]
+        }
+        else{
+            duplicate=arr[i]
+        }
+        i++
+    }
+    return arr
+}
+console.log(removeDuplicate([1,1,2,3,4,4,5,6,6,7,44,55]))
+
+function removeDuplicate(arr)
+{
+    if(arr.length==0)
+    {
+        return arr
+    }
+    let i=1
+    while(i<arr.length)
+    {
+        if(arr[i]==arr[i-1])
+        {
+            arr.splice(i,1)
+        }
+        else{
+            i++
+        }
+    }
+    return arr
+}
+console.log(removeDuplicate([1,1,2,3,4,4,4,5,6,6,7,44,55,88,99,100,34,53,233,2233,22334,221123]))
+
+function moveAllzrs(arr)
+{
+    if(arr.length==1)
+    {
+        return arr
+    }
+    else
+    {
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]==0 && i<arr.length-1)
+            {
+                let temp=arr[i+1]
+                arr[i+1]=arr[i]
+                arr[i]=temp
+            }
+        }
+        return arr
+    }
+}
+console.log(moveAllzrs([0,3,8,5,0]))
+
+// let person1={
+//     name:"Nirbhay",
+//     age:20
+// }
+// let person2={...person1, name:"kunal"}
+// console.log(person2)
+
+// for(let key in person2)
+// {
+//     console.log(person2[key])
+// }
+
+// console.log(Object.keys(person2))
+// console.log(Object.values(person2))
+// console.log(Object.entries(person2))
+
+// let names=["Nirbhay","kunal","lalit"]
+// let names2=[...names, "kunti"]
+// console.log("names",names)
+// console.log("names2",names2)
