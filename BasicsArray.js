@@ -252,37 +252,30 @@ function moveAllzrs(arr)
     }
     else
     {
-        for(let i=0;i<arr.length;i++)
+        let zeroElement=0
+        while(zeroElement<arr.length)
         {
-            if(arr[i]==0 && i<arr.length-1)
+            if(arr[zeroElement]==0 && zeroElement<arr.length)
             {
-                let temp=arr[i+1]
-                arr[i+1]=arr[i]
-                arr[i]=temp
+                let j=zeroElement+1
+                while(j<arr.length)
+                {
+                    if(arr[j]!=0)
+                    {
+                        let temp=arr[j]
+                        arr[j]=arr[zeroElement]
+                        arr[zeroElement]=temp
+                        j++
+                        zeroElement++
+                    }
+                    else{
+                        j++
+                    }
+                }
             }
+            zeroElement++
         }
         return arr
     }
 }
-console.log(moveAllzrs([0,3,8,5,0]))
-
-// let person1={
-//     name:"Nirbhay",
-//     age:20
-// }
-// let person2={...person1, name:"kunal"}
-// console.log(person2)
-
-// for(let key in person2)
-// {
-//     console.log(person2[key])
-// }
-
-// console.log(Object.keys(person2))
-// console.log(Object.values(person2))
-// console.log(Object.entries(person2))
-
-// let names=["Nirbhay","kunal","lalit"]
-// let names2=[...names, "kunti"]
-// console.log("names",names)
-// console.log("names2",names2)
+console.log(moveAllzrs([0,3,8,5,0,7,8,5,7]))
