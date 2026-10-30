@@ -279,3 +279,16 @@ function moveAllzrs(arr)
     }
 }
 console.log(moveAllzrs([0,3,8,5,0,7,8,5,7]))
+
+// Rotate array by one unit
+function rotateArray(list)
+{
+    let temp=list[list.length-1]
+    for(let i=list.length-2;i>=0;i--)
+    {
+        list[i+1]=list[i]
+    }
+    list[0]=temp
+    return list
+}
+console.log(rotateArray([3,4,5,6,7]))
