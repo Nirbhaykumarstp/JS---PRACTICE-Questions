@@ -292,3 +292,21 @@ function rotateArray(list)
     return list
 }
 console.log(rotateArray([3,4,5,6,7]))
+
+//frequency of each element-- factory function
+function getFrequency(arr)
+{
+    let obj={}
+    for(let i=0;i<arr.length;i++)
+    {
+        if(Object.keys(obj).includes(`${arr[i]}`))
+        {
+            obj[`${arr[i]}`]++
+        }
+        else{
+            obj[`${arr[i]}`]=1
+        }
+    }
+    return obj
+}
+console.log(getFrequency([1,1,2,3,4,2]))
