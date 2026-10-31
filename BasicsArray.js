@@ -310,3 +310,45 @@ function getFrequency(arr)
     return obj
 }
 console.log(getFrequency([1,1,2,3,4,2]))
+
+// Two sum problem-- give the indices of the numbers whsoe sum is equal to target
+function twoSum(arr,target)
+{
+    let indices
+    for(let start=0;start<arr.length-1;start++)
+    {
+        for(let next=start+1;next<arr.length;next++)
+        {
+            if(arr[start]+arr[next]==target)
+            {
+                indices=[start,next]
+            }
+        }
+    }
+    return indices
+}
+console.log(twoSum([6,6,4,5,3,4,5],9))
+
+// function twoSum(arr,target)
+// {
+//     let indices
+//     let i=0
+//     let temp=arr[i]
+//     while(i<arr.length-1)
+//     {
+//         temp=temp+arr[i+1]
+//         if(temp==target)
+//         {
+//             indices=[i,i+1]
+//             return indices
+//         }
+//         else
+//         {
+//             temp=temp-arr[i+1]
+//             i++
+//         }
+
+//     }
+//     return indices
+// }
+// console.log(twoSum([1,6,5,4,7],11))
