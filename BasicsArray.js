@@ -312,43 +312,37 @@ function getFrequency(arr)
 console.log(getFrequency([1,1,2,3,4,2]))
 
 // Two sum problem-- give the indices of the numbers whsoe sum is equal to target
-function twoSum(arr,target)
-{
-    let indices
-    for(let start=0;start<arr.length-1;start++)
-    {
-        for(let next=start+1;next<arr.length;next++)
-        {
-            if(arr[start]+arr[next]==target)
-            {
-                indices=[start,next]
-            }
-        }
-    }
-    return indices
-}
-console.log(twoSum([6,6,4,5,3,4,5],9))
-
 // function twoSum(arr,target)
 // {
 //     let indices
-//     let i=0
-//     let temp=arr[i]
-//     while(i<arr.length-1)
+//     for(let start=0;start<arr.length-1;start++)
 //     {
-//         temp=temp+arr[i+1]
-//         if(temp==target)
+//         for(let next=start+1;next<arr.length;next++)
 //         {
-//             indices=[i,i+1]
-//             return indices
+//             if(arr[start]+arr[next]==target)
+//             {
+//                 indices=[start,next]
+//             }
 //         }
-//         else
-//         {
-//             temp=temp-arr[i+1]
-//             i++
-//         }
-
 //     }
 //     return indices
 // }
-// console.log(twoSum([1,6,5,4,7],11))
+// console.log(twoSum([6,6,4,5,3,4,5],9))
+
+function twoSum(arr,target)
+{
+    let indices=[]
+    const obj={}
+    for(let i=0;i<arr.length;i++)
+    {
+        if(!Object.keys(obj).includes(`${target-arr[i]}`))
+        {
+            obj[`${arr[i]}`]=i
+        }
+        else{
+            indices=[arr.indexOf(target-arr[i]),i]
+            return indices
+        }
+    }
+}
+console.log(twoSum([4,6,5,4,7],11))
