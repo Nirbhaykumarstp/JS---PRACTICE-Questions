@@ -346,3 +346,13 @@ function twoSum(arr,target)
     }
 }
 console.log(twoSum([4,6,5,4,7],11))
+
+// find largest difference in an array such that the largest appears after the smallest element
+function getLargestDifference(arr)
+{
+    let smallest=Math.min(...arr)
+    arr=arr.slice(arr.indexOf(smallest)+1)
+    let largest=Math.max(...arr)
+    console.log(largest-smallest)
+}
+getLargestDifference([7,1,5,3,6,4])
