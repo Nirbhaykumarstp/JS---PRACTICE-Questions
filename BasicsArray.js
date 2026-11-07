@@ -356,3 +356,96 @@ function getLargestDifference(arr)
     console.log(largest-smallest)
 }
 getLargestDifference([7,1,5,3,6,4])
+
+// find largest difference in a array
+// function getbigDifference(arr)
+// {
+//     let largest=-1
+//     let smallest=arr[0]
+//     for(let i=1;i<arr.length;i++)
+//     {
+//         if(arr[i]<=smallest)
+//         {
+//             largest=smallest
+//             smallest=arr[i]
+//         }
+//     }
+//     return largest-smallest
+// }
+// console.log(getbigDifference([7,1,5,3,6,4,53]))
+
+// function getbigDifference(arr)
+// {
+//     let largest=-1
+//     let smallest=arr[0]
+//     for(let i=1;i<arr.length;i++)
+//     {
+//         if(arr[i]<=smallest)
+//         {
+//             largest=smallest
+//             smallest=arr[i]
+//         }
+//         else if(arr[i]>=largest)
+//         {
+//             largest=arr[i]
+//         }
+//     }
+//     return largest-smallest
+// }
+// console.log(getbigDifference([4,3,3,4,5,3,54,4,3,4,50]))
+// function getLargestDifference(arr)
+// {
+//     let difference=-1
+//     let min=arr[0]
+//     for(let i=1;i<arr.length;i++)
+//     {
+//         if(arr[i]<=min && arr[i]-min>=difference)
+//         {
+//             min=arr[i]
+//         }
+//     }
+// }
+// getLargestDifference([2,7,1,3,10])
+
+//Second level in solving array Problem
+
+//1 find common elemnt in two array
+// function findCommon(a1,a2)
+// {
+//     let common=[]
+//     if(a1.length!=0 && a2.length!=0)
+//     {
+//         for(let i=0;i<a1.length;i++)
+//         {
+//             for(let j=0;j<a2.length;j++)
+//             {
+//                 if(a1[i]==a2[j])
+//                 {
+//                     common.push(a1[i])   
+//                 }
+//             }
+//         }
+//         return common
+//     }
+//     else{
+//         return 0
+//     }
+// }
+
+// console.log(findCommon([1,2,2,3],[2,2,3,4]))
+
+function commonElement(a1,a2)
+{
+    let uniqueElem=new Set(a1)
+    let common=[]
+    for(let i=0;i<a2.length;i++)
+    {
+        if(uniqueElem.has(a2[i]) && !common.includes(a2[i]))
+        {
+            common.push(a2[i])
+        }
+    }
+    return common
+}
+console.log(commonElement([1,2,3,5,6],[6,2,3,4,5]))
+
