@@ -449,3 +449,21 @@ function commonElement(a1,a2)
 }
 console.log(commonElement([1,2,3,5,6],[6,2,3,4,5]))
 
+// Find union of two arrays
+function getUnion(a1,a2)
+{
+    if(a1.length==0)
+    {
+        return a2
+    }
+    else if(a2.length==0)
+    {
+        return a1
+    }
+    else{
+        let combined=[...a1,...a2]
+        combined=[...new Set(combined)]
+        return combined
+    }
+}
+console.log(getUnion([1,2,3,1,2,3],[3,4,5,6,7,8]))
