@@ -447,3 +447,64 @@ function getLeaders(arr)
     })
 }
 console.log(getLeaders([16, 17, 4, 3, 5, 2]))
+
+//sort array of 0 1 and 2s
+let arr=[0,1,2,1,2]
+arr=arr.sort((a,b)=>{
+    return a-b
+})
+console.log(arr)
+
+// function sort0sAnd1s(arr)
+// {
+//     for(let i=0;i<arr.length;i++)
+//     {
+//         for(let j=i+1;j<arr.length;j++)
+//         {
+//             if(i<arr.length-2 && arr[i]>arr[j])
+//             {
+//                 let temp=arr[i]
+//                 arr[i]=arr[j]
+//                 arr[j]=temp
+//             }
+//         }
+//     }
+//     return arr
+// }
+// console.log(sort0sAnd1s([0,2,1,2,2]))
+
+function sort0sAnd1s(arr)
+{
+    let count0=0
+    let count1=0
+    let count2=0
+    let sortedArr=[]
+    for(let i=0;i<arr.length;i++)
+    {
+        if(arr[i]==0)
+        {
+            count0++
+        }
+        else if(arr[i]==1)
+        {
+            count1++
+        }
+        else{
+            count2++
+        }
+    }
+    for(let c0=0;c0<count0;c0++)
+    {
+        sortedArr.push(0)
+    }
+    for(let c1=0;c1<count1;c1++)
+    {
+        sortedArr.push(1)
+    }
+    for(let c2=0;c2<count2;c2++)
+    {
+        sortedArr.push(2)
+    }
+    return sortedArr
+}
+console.log(sort0sAnd1s([0,2,1,2,2,0,1,0]))
