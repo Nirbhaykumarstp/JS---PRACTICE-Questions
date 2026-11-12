@@ -420,38 +420,34 @@ function leftRotatebyk(arr, k) {
     }
     else {
         let temp = arr[0]
-        for (let i = 0; i <= arr.length - 2; i++) 
-        {
+        for (let i = 0; i <= arr.length - 2; i++) {
             arr[i] = arr[i + 1]
         }
         arr[arr.length - 1] = temp
         k--
-        return leftRotatebyk(arr,k)
+        return leftRotatebyk(arr, k)
     }
 }
-console.log(leftRotatebyk([1,2,3,4,5],2))
+console.log(leftRotatebyk([1, 2, 3, 4, 5], 2))
 
 //find the leaders in a array
-function getLeaders(arr)
-{
-    let leaders=[arr[arr.length-1]]
-    for(let i=arr.length-2;i>=0;i--)
-    {
-        if(arr[i]>arr[i+1])
-        {
+function getLeaders(arr) {
+    let leaders = [arr[arr.length - 1]]
+    for (let i = arr.length - 2; i >= 0; i--) {
+        if (arr[i] > arr[i + 1]) {
             leaders.push(arr[i])
         }
     }
-    return leaders.sort((a,b)=>{
-        return a-b
+    return leaders.sort((a, b) => {
+        return a - b
     })
 }
 console.log(getLeaders([16, 17, 4, 3, 5, 2]))
 
 //sort array of 0 1 and 2s
-let arr=[0,1,2,1,2]
-arr=arr.sort((a,b)=>{
-    return a-b
+let arr = [0, 1, 2, 1, 2]
+arr = arr.sort((a, b) => {
+    return a - b
 })
 console.log(arr)
 
@@ -473,38 +469,112 @@ console.log(arr)
 // }
 // console.log(sort0sAnd1s([0,2,1,2,2]))
 
-function sort0sAnd1s(arr)
-{
-    let count0=0
-    let count1=0
-    let count2=0
-    let sortedArr=[]
-    for(let i=0;i<arr.length;i++)
-    {
-        if(arr[i]==0)
-        {
+function sort0sAnd1s(arr) {
+    let count0 = 0
+    let count1 = 0
+    let count2 = 0
+    let sortedArr = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == 0) {
             count0++
         }
-        else if(arr[i]==1)
-        {
+        else if (arr[i] == 1) {
             count1++
         }
-        else{
+        else {
             count2++
         }
     }
-    for(let c0=0;c0<count0;c0++)
-    {
+    for (let c0 = 0; c0 < count0; c0++) {
         sortedArr.push(0)
     }
-    for(let c1=0;c1<count1;c1++)
-    {
+    for (let c1 = 0; c1 < count1; c1++) {
         sortedArr.push(1)
     }
-    for(let c2=0;c2<count2;c2++)
-    {
+    for (let c2 = 0; c2 < count2; c2++) {
         sortedArr.push(2)
     }
     return sortedArr
 }
-console.log(sort0sAnd1s([0,2,1,2,2,0,1,0]))
+console.log(sort0sAnd1s([0, 2, 1, 2, 2, 0, 1, 0]))
+
+// Find mejority element
+// function findMejority(arr)
+// {
+//     if(arr.length!=0)
+//     {
+//         const half=Math.floor(arr.length/2)
+//         const map={}
+//         for(let i=0;i<arr.length;i++)
+//         {
+//             if(Object.hasOwn(map,arr[i]))
+//             {
+//                 map[arr[i]]=map[arr[i]]+1
+//             }
+//             else{
+//                 map[arr[i]]=1
+//             }
+//         }
+//         console.log(map)
+//         for(j of map)
+//         {
+//             if(map[j]>half)
+//                 console.log(map[j])
+//         }
+//     }
+// }
+// findMejority([1,1,2,1,2,4,5,1,2])
+
+// function isDifferenceExist(arr,k)
+// {
+//     if(arr.length==0 || arr.length==1)
+//     {
+//         return false
+//     }
+//     else{
+//         for(let i=0;i<arr.length;i++)
+//         {
+//             for(let j=i+1;j<arr.length;j++)
+//             {
+//                 if(i<arr.length-1 && Math.abs([i]-arr[j])==k)
+//                 {
+//                     return true
+//                 }
+//             }
+//         }
+//         return false
+//     }
+// }
+// console.log(isDifferenceExist([4,5,1,2],2))
+
+function isDifferenceExist(arr, k) {
+    if (arr.length == 0 || arr.length == 1) {
+        return -1
+    }
+    else {
+        arr = arr.sort((a, b) => {
+            return a - b
+        })
+        let i = 0
+        let j = arr.length - 1
+        let min = arr[i]
+        let max = arr[j]
+        while (Math.abs(i-j)!=1) 
+        {
+            if(Math.abs(min - max) == k)
+            {
+                return true
+            }
+            else if (Math.abs(min - max) > k) 
+            {
+                min = arr[i++]
+            }
+            else if(Math.abs(min - max) < k)
+            {
+                max = arr[j--]
+            }
+        }
+        return false
+    }
+}
+console.log(isDifferenceExist([4,5,1,2],2))
