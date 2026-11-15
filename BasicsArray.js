@@ -547,34 +547,118 @@ console.log(sort0sAnd1s([0, 2, 1, 2, 2, 0, 1, 0]))
 // }
 // console.log(isDifferenceExist([4,5,1,2],2))
 
-function isDifferenceExist(arr, k) {
-    if (arr.length == 0 || arr.length == 1) {
-        return -1
-    }
-    else {
-        arr = arr.sort((a, b) => {
-            return a - b
-        })
-        let i = 0
-        let j = arr.length - 1
-        let min = arr[i]
-        let max = arr[j]
-        while (Math.abs(i-j)!=1) 
-        {
-            if(Math.abs(min - max) == k)
-            {
-                return true
-            }
-            else if (Math.abs(min - max) > k) 
-            {
-                min = arr[i++]
-            }
-            else if(Math.abs(min - max) < k)
-            {
-                max = arr[j--]
-            }
-        }
+// function isDifferenceExist(arr, k) {
+//     if (arr.length == 0 || arr.length == 1) {
+//         return -1
+//     }
+//     else {
+//         arr = arr.sort((a, b) => {
+//             return a - b
+//         })
+//         let i = 0
+//         let j = arr.length - 1
+//         let min = arr[i]
+//         let max = arr[j]
+//         while (Math.abs(i-j)!=1) 
+//         {
+//             if(Math.abs(min - max) == k)
+//             {
+//                 return true
+//             }
+//             else if (Math.abs(min - max) > k) 
+//             {
+//                 min = arr[i++]
+//             }
+//             else if(Math.abs(min - max) < k)
+//             {
+//                 max = arr[j--]
+//             }
+//         }
+//         return false
+//     }
+// }
+// console.log(isDifferenceExist([4,5,1,2],2))
+
+function isDifferenceExist(arr,k)
+{
+    if (arr.length == 0 || arr.length == 1) 
+    {
         return false
     }
+    else{
+        let map={}
+        let count=0
+        for(let i=0;i<arr.length;i++)
+        {
+            if(Object.hasOwn(map,arr[i]+k) || Object.hasOwn(map,Math.abs(arr[i]-k)))
+            {
+                count++
+                map[arr[i]]++
+            }
+            else{
+                map[arr[i]]=1
+            }
+        }
+        return count
+    }
 }
-console.log(isDifferenceExist([4,5,1,2],2))
+console.log(isDifferenceExist([4,1,2,4],2))
+
+// Rearrange positive negative numbers
+function rearrangeSign(arr)
+{
+    if(arr.length%2==0)
+    {
+        let positive=[]
+        let negative=[]
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]>=0)
+            {
+                positive.push(arr[i])
+            }
+            else{
+                negative.push(arr[i])
+            }
+        }
+        
+        for(let k=0;k<(arr.length/2);k++)
+        {
+            arr[2*k]=positive[k]
+            arr[2*k+1]=negative[k]
+        }
+        return arr
+    }
+    else{
+        return -1
+    }
+}
+console.log(rearrangeSign([2,3,4,-1,-5,-6]))
+
+// find equilibrium index in an array
+function getEquilibrium(arr)
+{
+    if(arr.length==0 || arr.length==1)
+    {
+        return -1
+    }
+    else{
+        let totalSum=0
+        let afterSum=arr[0]
+        for(let i=0;i<arr.length;i++)    
+        {
+            totalSum=totalSum+arr[i]
+        }
+        for(let k=0;k<arr.length;k++)
+        {
+            if(totalSum-afterSum==arr[k])
+            {
+                console.log(k)
+            }
+            else{
+                afterSum=afterSum+arr[k]
+            }
+        }
+    }
+}
+getEquilibrium([12,3,4,3,4,5])
