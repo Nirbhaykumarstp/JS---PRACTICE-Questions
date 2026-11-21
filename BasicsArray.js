@@ -644,21 +644,61 @@ function getEquilibrium(arr)
     }
     else{
         let totalSum=0
-        let afterSum=arr[0]
-        for(let i=0;i<arr.length;i++)    
+        for(let i=0;i<arr.length;i++)
         {
             totalSum=totalSum+arr[i]
         }
-        for(let k=0;k<arr.length;k++)
+        let leftSum=0
+        for(let j=0;j<arr.length;j++)
         {
-            if(totalSum-afterSum==arr[k])
+            if(totalSum-leftSum==leftSum)
             {
-                console.log(k)
+                return j
             }
             else{
-                afterSum=afterSum+arr[k]
+                leftSum=leftSum+arr[j]
             }
         }
+        return -1
     }
 }
-getEquilibrium([12,3,4,3,4,5])
+console.log(getEquilibrium([3,1,5,2,2]))
+
+//merge the two sorted arrays
+
+function merge(arr1,arr2)
+{
+    let obj={}
+    for(let i=0;i<arr1.length;i++)
+    {
+        if(!Object.hasOwn(obj,arr1[i]))
+        {
+            obj[arr1[i]]=i
+        }
+    }
+    for(let j=0;j<arr2.length;j++)
+    {
+        if(!Object.hasOwn(obj,arr2[j]))
+        {
+            obj[arr2[j]]=j
+        }
+    }
+    console.log(obj)
+    return Object.keys(obj)
+}
+console.log(merge([1,1,1,2],[1,2,3,8]))
+
+function merge(arr1,arr2)
+{
+    let obj={}
+    arr1=[...arr1,...arr2]
+    for(let i=0;i<arr1.length;i++)
+    {
+        if(!Object.hasOwn(obj,arr1[i]))
+        {
+            obj[arr1[i]]=i
+        }
+    }
+    return Object.keys(obj)
+}
+console.log(merge([1,1,1,2],[1,2,3,8]))
